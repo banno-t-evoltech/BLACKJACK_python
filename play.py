@@ -2,6 +2,7 @@
 
 import random
 
+# カードクラス
 class Card:
     def __init__(self, suit, rank):
         self.suit = suit
@@ -10,6 +11,7 @@ class Card:
     def __str__(self):
         return f"{self.suit}{self.rank}"
 
+# デッキクラス
 class Deck:
     suits = ['♥', '♦', '♣', '♠']
     ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
@@ -21,6 +23,7 @@ class Deck:
     def draw_card(self):
         return self.cards.pop()
 
+# プレイヤークラス
 class Player:
     def __init__(self, name):
         self.name = name
@@ -29,6 +32,7 @@ class Player:
     def add_card(self, card):
         self.hand.append(card)
 
+    #点数計算
     def calculate_hand(self):
         values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
         result = 0
@@ -45,6 +49,7 @@ class Player:
     def show_hand(self):
         return ', '.join(str(card) for card in self.hand)
 
+# ブラックジャックのゲームクラス
 class BlackJackGame:
     def __init__(self):
         self.deck = Deck()
